@@ -1,7 +1,6 @@
-import React from 'react'
 import LanguageSelector from './LanguageSelector'
 
-const RepoFetcher: React.FC = () => {
+function RepoFetcher() {
 
   const languages = [
     { label: 'JavaScript', value: 'javascript' },
@@ -14,6 +13,9 @@ const RepoFetcher: React.FC = () => {
   return (
     <div className="repo-fetcher">
       <LanguageSelector languages={languages} />
+      <div className="search-result">
+        Please select a language
+      </div>
     </div>
   )
 }
