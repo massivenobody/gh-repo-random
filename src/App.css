@@ -38,6 +38,8 @@
 }
 
 .repo-info {
+  width: 100%;
+
   & > h2, & > p {
     align-self: flex-start;
     text-align: left;
