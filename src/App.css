@@ -36,3 +36,18 @@
   border: 1px solid #ccc;
   border-radius: 10px;
 }
+
+.repo-info {
+  & > h2, & > p {
+    align-self: flex-start;
+    text-align: left;
+  }
+}
+
+.repo-info-bar {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}

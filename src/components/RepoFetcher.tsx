@@ -63,11 +63,13 @@ function RepoFetcher() {
             ? <div className="repo-info">
                 <h2>{repo.name}</h2>
                 <p>{repo.description}</p>
-                <p>Language: {repo.language}</p>
-                <p>Stars: {repo.stargazers_count}</p>
-                <p>Forks: {repo.forks_count}</p>
-                <p>Open Issues: {repo.open_issues_count}</p>
-                <p>URL: {repo.html_url}</p>
+                <div className="repo-info-bar">
+                  <p>Language: {repo.language}</p>
+                  <p>Stars: {repo.stargazers_count}</p>
+                  <p>Forks: {repo.forks_count}</p>
+                  <p>Open Issues: {repo.open_issues_count}</p>
+                  <p>URL: {repo.html_url}</p>
+                </div>
               </div>
           : 'Please select a language'}
       </div>
