@@ -62,7 +62,7 @@ function RepoFetcher() {
         {isLoading
           ? 'Loading...'
           : repo
-            ? <div className="repo-info">
+            ? <a href={repo.html_url} target="_blank" rel="noopener noreferrer" className="repo-info">
                 <h2>{repo.name}</h2>
                 <p>{repo.description}</p>
                 <div className="repo-info-bar">
@@ -70,9 +70,8 @@ function RepoFetcher() {
                   <p><FaStar /> {repo.stargazers_count}</p>
                   <p><FaCodeFork /> {repo.forks_count}</p>
                   <p><FaExclamationCircle /> {repo.open_issues_count}</p>
-                  <p>URL: {repo.html_url}</p>
                 </div>
-              </div>
+              </a>
           : 'Please select a language'}
       </div>
     </div>
