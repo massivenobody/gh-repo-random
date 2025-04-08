@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import LanguageSelector from './LanguageSelector'
 import { Octokit } from 'octokit'
-import { FaStar, FaCodeFork } from 'react-icons/fa6'
+import { FaStar, FaCodeFork, FaCircle } from 'react-icons/fa6'
 import { FaExclamationCircle } from 'react-icons/fa'
 
 const octokit = new Octokit();
@@ -66,10 +66,18 @@ function RepoFetcher() {
                 <h2>{repo.name}</h2>
                 <p>{repo.description}</p>
                 <div className="repo-info-bar">
-                  <p>Language: {repo.language}</p>
-                  <p><FaStar /> {repo.stargazers_count}</p>
-                  <p><FaCodeFork /> {repo.forks_count}</p>
-                  <p><FaExclamationCircle /> {repo.open_issues_count}</p>
+                  <div className="stat-item">
+                    <FaCircle /> {repo.language}
+                  </div>
+                  <div className="stat-item">
+                    <FaStar /> {repo.stargazers_count}
+                  </div>
+                  <div className="stat-item">
+                    <FaCodeFork /> {repo.forks_count}
+                  </div>
+                  <div className="stat-item">
+                    <FaExclamationCircle /> {repo.open_issues_count}
+                  </div>
                 </div>
               </a>
           : 'Please select a language'}
