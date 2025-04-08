@@ -12,10 +12,10 @@ function RepoFetcher() {
     { label: 'C#', value: 'csharp' },
   ]
 
-  const handleLanguageChange = (option: {label: string, value: string} | null) => {
+  function handleLanguageChange(option: {label: string, value: string} | null) {
     setSelectedLanguage(option)
   }
-  
+
   return (
     <div className="repo-fetcher">
       <LanguageSelector
