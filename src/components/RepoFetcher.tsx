@@ -7,6 +7,7 @@ const octokit = new Octokit();
 function RepoFetcher() {
   const [selectedLanguage, setSelectedLanguage] = useState<{label: string, value: string} | null>(null)
   const [isLoading, setIsLoading] = useState(false);
+  const [repo, setRepo] = useState<any>(null);
 
   const languages = [
     { label: 'JavaScript', value: 'javascript' },
@@ -29,6 +30,9 @@ function RepoFetcher() {
       const randomPage = Math.floor(Math.random() * 100) + 1;
       
       const { data } = await octokit.request('GET /search/repositories', {
+        headers: {
+          'X-GitHub-Api-Version': '2022-11-28'
+        },
         q: `language:${selectedLanguage.value}`,
         sort: 'stars',
         order: 'desc',
@@ -36,6 +40,7 @@ function RepoFetcher() {
         page: randomPage,
       });
 
+      setRepo(data.items[0]);
       console.log(data.items[0]);
     } catch (error) {
       console.error('Error fetching repository:', error);
@@ -52,7 +57,19 @@ function RepoFetcher() {
         onLanguageChange={handleLanguageChange}
       />
       <div className="search-result">
-        {isLoading ? 'Loading...' : 'Please select a language'}
+        {isLoading
+          ? 'Loading...'
+          : repo
+            ? <div className="repo-info">
+                <h2>{repo.name}</h2>
+                <p>{repo.description}</p>
+                <p>Language: {repo.language}</p>
+                <p>Stars: {repo.stargazers_count}</p>
+                <p>Forks: {repo.forks_count}</p>
+                <p>Open Issues: {repo.open_issues_count}</p>
+                <p>URL: {repo.html_url}</p>
+              </div>
+          : 'Please select a language'}
       </div>
     </div>
   )
