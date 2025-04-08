@@ -19,11 +19,11 @@ function RepoFetcher() {
 
   function handleLanguageChange(option: {label: string, value: string} | null) {
     setSelectedLanguage(option)
-    fetchRandomRepo();
+    fetchRandomRepo(option);
   }
 
-  async function fetchRandomRepo() {
-    if (!selectedLanguage) return;
+  async function fetchRandomRepo(option: {label: string, value: string} | null) {
+    if (!option) return;
 
     setIsLoading(true);
     try {
@@ -33,7 +33,7 @@ function RepoFetcher() {
         headers: {
           'X-GitHub-Api-Version': '2022-11-28'
         },
-        q: `language:${selectedLanguage.value}`,
+        q: `language:${option.value}`,
         sort: 'stars',
         order: 'desc',
         per_page: 1,
