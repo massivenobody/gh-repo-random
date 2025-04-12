@@ -1,4 +1,5 @@
 import { Octokit } from 'octokit';
+import { GitHubRepo } from '../types/github';
 
 class GitHubService {
   private client: Octokit;
@@ -15,7 +16,7 @@ class GitHubService {
     return GitHubService.instance;
   }
     
-  async getRandomRepo(language: string) {
+  async getRandomRepo(language: string): Promise<GitHubRepo> {
     const randomPage = Math.floor(Math.random() * 100) + 1;
 
     // Try fetching a random repo from GitHub using the Octokit client

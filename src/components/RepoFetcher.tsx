@@ -5,11 +5,12 @@ import { FaStar, FaCodeFork, FaCircle } from 'react-icons/fa6'
 import { FaExclamationCircle } from 'react-icons/fa'
 import languages from '../data/languages'
 import colors from '../data/colors'
+import { GitHubRepo } from '../types/github'
 
 function RepoFetcher() {
   const [selectedLanguage, setSelectedLanguage] = useState<{label: string, value: string} | null>(null)
   const [isLoading, setIsLoading] = useState(false);
-  const [repo, setRepo] = useState<any>(null);
+  const [repo, setRepo] = useState<GitHubRepo | null>(null);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   function handleLanguageChange(option: {label: string, value: string} | null) {
@@ -49,7 +50,7 @@ function RepoFetcher() {
                 <p>{repo.description}</p>
                 <div className="repo-info-bar">
                   <div className="stat-item">
-                    <FaCircle style={{ color: colors[repo.language].color }} /> {repo.language}
+                    <FaCircle style={repo.language ? { color: colors[repo.language].color } : {}} /> {repo.language}
                   </div>
                   <div className="stat-item">
                     <FaStar /> {repo.stargazers_count}
