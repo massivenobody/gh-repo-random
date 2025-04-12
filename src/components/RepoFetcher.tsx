@@ -6,19 +6,20 @@ import { FaExclamationCircle } from 'react-icons/fa'
 import languages from '../data/languages'
 import colors from '../data/colors'
 import { GitHubRepo } from '../types/github'
+import { LanguageOption } from '../types/language'
 
 function RepoFetcher() {
-  const [selectedLanguage, setSelectedLanguage] = useState<{label: string, value: string} | null>(null)
+  const [selectedLanguage, setSelectedLanguage] = useState<LanguageOption | null>(null)
   const [isLoading, setIsLoading] = useState(false);
   const [repo, setRepo] = useState<GitHubRepo | null>(null);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
-  function handleLanguageChange(option: {label: string, value: string} | null) {
+  function handleLanguageChange(option: LanguageOption | null) {
     setSelectedLanguage(option);
     fetchRandomRepo(option);
   }
 
-  async function fetchRandomRepo(option: {label: string, value: string} | null) {
+  async function fetchRandomRepo(option: LanguageOption | null) {
     if (!option) return;
 
     setIsLoading(true);
