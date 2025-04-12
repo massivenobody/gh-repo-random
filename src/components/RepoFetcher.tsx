@@ -4,6 +4,7 @@ import { Octokit } from 'octokit'
 import { FaStar, FaCodeFork, FaCircle } from 'react-icons/fa6'
 import { FaExclamationCircle } from 'react-icons/fa'
 import languages from '../data/languages'
+import colors from '../data/colors'
 
 const octokit = new Octokit();
 
@@ -59,7 +60,7 @@ function RepoFetcher() {
                 <p>{repo.description}</p>
                 <div className="repo-info-bar">
                   <div className="stat-item">
-                    <FaCircle /> {repo.language}
+                    <FaCircle style={{ color: colors[repo.language].color }} /> {repo.language}
                   </div>
                   <div className="stat-item">
                     <FaStar /> {repo.stargazers_count}
