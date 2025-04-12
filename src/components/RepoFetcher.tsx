@@ -74,6 +74,7 @@ function RepoFetcher() {
               </a>
           : 'Please select a language'}
       </div>
+      <button className="refresh-button" onClick={() => fetchRandomRepo(selectedLanguage)}>Refresh</button>
     </div>
   )
 }
