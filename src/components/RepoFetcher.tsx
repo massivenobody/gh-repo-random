@@ -12,6 +12,7 @@ function RepoFetcher() {
   const [selectedLanguage, setSelectedLanguage] = useState<{label: string, value: string} | null>(null)
   const [isLoading, setIsLoading] = useState(false);
   const [repo, setRepo] = useState<any>(null);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   function handleLanguageChange(option: {label: string, value: string} | null) {
     setSelectedLanguage(option);
@@ -22,6 +23,7 @@ function RepoFetcher() {
     if (!option) return;
 
     setIsLoading(true);
+    setErrorMessage(null);
     try {
       const randomPage = Math.floor(Math.random() * 100) + 1;
       
@@ -37,11 +39,15 @@ function RepoFetcher() {
       });
 
       setRepo(data.items[0]);
-    } catch (error) {
+    } catch (error: any) {
       console.error('Error fetching repository:', error);
-    } finally {
-      setIsLoading(false);
+      if (error.status === 403) {
+        setErrorMessage('Rate limit exceeded. Please try again later.');
+      } else {
+        setErrorMessage('An error occurred. Please try again later.');
+      }
     }
+    setIsLoading(false);
   }
 
   return (
@@ -54,8 +60,8 @@ function RepoFetcher() {
       <div className="search-result">
         {isLoading
           ? 'Loading...'
-          : repo
-            ? <a href={repo.html_url} target="_blank" rel="noopener noreferrer" className="repo-info">
+          : errorMessage ? errorMessage : repo ? (
+            <a href={repo.html_url} target="_blank" rel="noopener noreferrer" className="repo-info">
                 <h2>{repo.name}</h2>
                 <p>{repo.description}</p>
                 <div className="repo-info-bar">
@@ -73,7 +79,7 @@ function RepoFetcher() {
                   </div>
                 </div>
               </a>
-          : 'Please select a language'}
+          ) : 'Please select a language'}
       </div>
       <button className="refresh-button" onClick={() => fetchRandomRepo(selectedLanguage)}>Refresh</button>
     </div>
