@@ -3,6 +3,7 @@ import LanguageSelector from './LanguageSelector'
 import { Octokit } from 'octokit'
 import { FaStar, FaCodeFork, FaCircle } from 'react-icons/fa6'
 import { FaExclamationCircle } from 'react-icons/fa'
+import languages from '../data/languages'
 
 const octokit = new Octokit();
 
@@ -11,16 +12,8 @@ function RepoFetcher() {
   const [isLoading, setIsLoading] = useState(false);
   const [repo, setRepo] = useState<any>(null);
 
-  const languages = [
-    { label: 'JavaScript', value: 'javascript' },
-    { label: 'Python', value: 'python' },
-    { label: 'Ruby', value: 'ruby' },
-    { label: 'Java', value: 'java' },
-    { label: 'C#', value: 'csharp' },
-  ]
-
   function handleLanguageChange(option: {label: string, value: string} | null) {
-    setSelectedLanguage(option)
+    setSelectedLanguage(option);
     fetchRandomRepo(option);
   }
 
@@ -43,7 +36,6 @@ function RepoFetcher() {
       });
 
       setRepo(data.items[0]);
-      console.log(data.items[0]);
     } catch (error) {
       console.error('Error fetching repository:', error);
     } finally {
