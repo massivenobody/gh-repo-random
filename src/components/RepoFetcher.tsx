@@ -1,12 +1,10 @@
 import { useState } from 'react'
 import LanguageSelector from './LanguageSelector'
-import { Octokit } from 'octokit'
+import GitHubService from '../api/GitHubService'
 import { FaStar, FaCodeFork, FaCircle } from 'react-icons/fa6'
 import { FaExclamationCircle } from 'react-icons/fa'
 import languages from '../data/languages'
 import colors from '../data/colors'
-
-const octokit = new Octokit();
 
 function RepoFetcher() {
   const [selectedLanguage, setSelectedLanguage] = useState<{label: string, value: string} | null>(null)
@@ -25,27 +23,12 @@ function RepoFetcher() {
     setIsLoading(true);
     setErrorMessage(null);
     try {
-      const randomPage = Math.floor(Math.random() * 100) + 1;
-      
-      const { data } = await octokit.request('GET /search/repositories', {
-        headers: {
-          'X-GitHub-Api-Version': '2022-11-28'
-        },
-        q: `language:${option.value}`,
-        sort: 'stars',
-        order: 'desc',
-        per_page: 1,
-        page: randomPage,
-      });
-
-      setRepo(data.items[0]);
+      const gitHubService = GitHubService.getInstance();
+      const randomRepo = await gitHubService.getRandomRepo(option.value);
+      setRepo(randomRepo);
     } catch (error: any) {
       console.error('Error fetching repository:', error);
-      if (error.status === 403) {
-        setErrorMessage('Rate limit exceeded. Please try again later.');
-      } else {
-        setErrorMessage('An error occurred. Please try again later.');
-      }
+      setErrorMessage(error.message);
     }
     setIsLoading(false);
   }
