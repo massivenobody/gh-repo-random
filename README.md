@@ -53,25 +53,25 @@ pnpm dev
 ## Future Development
 
 ### 1. Code Architecture
-- [x] Implement GitHubService class with singleton pattern for better API management
-- [ ] Add TypeScript interfaces and proper error handling
-- [ ] Create custom hooks for data fetching logic
-- [ ] Reorganize project structure (`/api`, `/hooks`, `/types`, `/utils`)
+- ✅ Implement GitHubService class with singleton pattern for better API management
+- 🔲 Add TypeScript interfaces and proper error handling
+- 🔲 Create custom hooks for data fetching logic
+- 🔲 Reorganize project structure (`/api`, `/hooks`, `/types`, `/utils`)
 
 ### 2. Features & UX
-- [ ] Support dark/light theme
-- [ ] Add authentication with GitHub OAuth for higher rate limits
-- [ ] Implement data caching to prevent unnecessary API calls
-- [ ] Add loading skeletons and better error states
-- [ ] Add repository search history and favorites
+- 🔲 Support dark/light theme
+- 🔲 Add authentication with GitHub OAuth for higher rate limits
+- 🔲 Implement data caching to prevent unnecessary API calls
+- 🔲 Add loading skeletons and better error states
+- 🔲 Add repository search history and favorites
 
 ### 3. Testing & Quality
-- [ ] Add unit tests
+- 🔲 Add unit tests
 
 ### 4. Accessibility
-- [ ] Add ARIA labels and keyboard navigation
-- [ ] Improve color contrast and screen reader support
-- [ ] Add accessibility testing
+- 🔲 Add ARIA labels and keyboard navigation
+- 🔲 Improve color contrast and screen reader support
+- 🔲 Add accessibility testing
 
 ## License
 
