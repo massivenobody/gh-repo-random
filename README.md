@@ -11,7 +11,9 @@ A React + TypeScript application that helps users discover random GitHub reposit
 - 🎨 Language-specific color coding
 - 🔄 Random repository selection
 - 🚦 Rate limit handling
-- 💫 Modern React Select dropdown
+- 💫 Modern UI with shadcn/ui components
+- 🎯 Fully accessible components
+- 🎨 Customizable theme support
 
 ## Tech Stack
 
@@ -19,7 +21,7 @@ A React + TypeScript application that helps users discover random GitHub reposit
 - TypeScript
 - Vite
 - Octokit (GitHub API client)
-- React Select
+- shadcn/ui (Radix UI + Tailwind CSS)
 - React Icons
 
 ## Getting Started
@@ -59,18 +61,23 @@ pnpm dev
 - 🔲 Reorganize project structure (`/api`, `/hooks`, `/types`, `/utils`)
 
 ### 2. Features & UX
-- 🔲 Support dark/light theme
+- 🔲 Implement shadcn/ui components:
+  - 🔲 Replace React Select with shadcn/ui Select
+  - 🔲 Add shadcn/ui Card for repo display
+  - 🔲 Implement shadcn/ui Skeleton for loading states
+  - 🔲 Add shadcn/ui Toast for notifications
+  - 🔲 Use shadcn/ui Button for actions
+- 🔲 Support dark/light theme with shadcn/ui theming
 - 🔲 Add authentication with GitHub OAuth for higher rate limits
 - 🔲 Implement data caching to prevent unnecessary API calls
-- 🔲 Add loading skeletons and better error states
 - 🔲 Add repository search history and favorites
 
 ### 3. Testing & Quality
 - 🔲 Add unit tests
+- 🔲 Add component testing with shadcn/ui
 
 ### 4. Accessibility
-- 🔲 Add ARIA labels and keyboard navigation
-- 🔲 Improve color contrast and screen reader support
+- 🔲 Built-in accessibility with shadcn/ui components
 - 🔲 Add accessibility testing
 
 ## License
@@ -80,5 +87,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## Acknowledgments
 
 - GitHub API
+- [shadcn/ui](https://ui.shadcn.com/) for modular, accessible components
 - [kamranahmedse/githunt](https://github.com/kamranahmedse/githunt) for languages data
 - [ozh/github-colors](https://github.com/ozh/github-colors) for language colors
