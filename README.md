@@ -67,7 +67,7 @@ pnpm dev
   - 🔲 Add shadcn/ui Card for repo display
   - 🔲 Implement shadcn/ui Skeleton for loading states
   - 🔲 Add shadcn/ui Toast for notifications
-  - 🔲 Use shadcn/ui Button for actions
+  - ✅ Use shadcn/ui Button for actions
 - 🔲 Support dark/light theme with shadcn/ui theming
 - 🔲 Add authentication with GitHub OAuth for higher rate limits
 - 🔲 Implement data caching to prevent unnecessary API calls

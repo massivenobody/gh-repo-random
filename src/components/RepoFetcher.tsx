@@ -7,6 +7,7 @@ import languages from '../data/languages'
 import colors from '../data/colors'
 import { GitHubRepo } from '../types/github'
 import { LanguageOption } from '../types/language'
+import RefreshButton from './RefreshButton'
 
 function RepoFetcher() {
   const [selectedLanguage, setSelectedLanguage] = useState<LanguageOption | null>(null);
@@ -65,7 +66,7 @@ function RepoFetcher() {
               </a>
           ) : 'Please select a language'}
       </div>
-      <button className="refresh-button" onClick={() => fetchRandomRepo(selectedLanguage)}>Refresh</button>
+      {repo && <RefreshButton onClick={() => fetchRandomRepo(selectedLanguage)} />}
     </div>
   )
 }
