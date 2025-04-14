@@ -5,10 +5,10 @@ import RepoFetcher from './components/RepoFetcher'
 function App() {
 
   return (
-    <div className="app">
-      <div className="title">
-        <img src={githubLogo} alt="GitHub Logo" />
-        <h1>Get Random GitHub Repo</h1>
+    <div className="w-85/100 max-w-[500px] mx-auto text-center py-10">
+      <div className="flex justify-center items-center gap-4 mb-4">
+        <img className='w-[50px] h-[50px]' src={githubLogo} alt="GitHub Logo" />
+        <h1 className='text-2xl font-bold'>Get Random GitHub Repo</h1>
       </div>
       <RepoFetcher />
     </div>
