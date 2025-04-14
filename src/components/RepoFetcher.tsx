@@ -9,7 +9,7 @@ import { GitHubRepo } from '../types/github'
 import { LanguageOption } from '../types/language'
 
 function RepoFetcher() {
-  const [selectedLanguage, setSelectedLanguage] = useState<LanguageOption | null>(null)
+  const [selectedLanguage, setSelectedLanguage] = useState<LanguageOption | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [repo, setRepo] = useState<GitHubRepo | null>(null);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
@@ -39,7 +39,6 @@ function RepoFetcher() {
     <div className="repo-fetcher">
       <LanguageSelector
         languages={languages}
-        selectedLanguage={selectedLanguage}
         onLanguageChange={handleLanguageChange}
       />
       <div className="search-result">

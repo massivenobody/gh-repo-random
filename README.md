@@ -63,7 +63,7 @@ pnpm dev
 
 ### 2. Features & UX
 - 🔲 Implement shadcn/ui components:
-  - 🔲 Replace React Select with shadcn/ui Select
+  - ✅ Replace React Select with shadcn/ui Select
   - 🔲 Add shadcn/ui Card for repo display
   - 🔲 Implement shadcn/ui Skeleton for loading states
   - 🔲 Add shadcn/ui Toast for notifications
