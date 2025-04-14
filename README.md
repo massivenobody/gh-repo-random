@@ -11,9 +11,9 @@ A React + TypeScript application that helps users discover random GitHub reposit
 - 🎨 Language-specific color coding
 - 🔄 Random repository selection
 - 🚦 Rate limit handling
-- 💫 Modern UI with shadcn/ui components
-- 🎯 Fully accessible components
-- 🎨 Customizable theme support
+- 💫 Modern UI with shadcn/ui components (coming soon)
+- 🎨 Customizable theme support with Tailwind CSS (coming soon)
+- 📱 Responsive design using Tailwind's utility classes (coming soon)
 
 ## Tech Stack
 
@@ -59,6 +59,7 @@ pnpm dev
 - ✅ Add TypeScript interfaces and proper error handling
 - 🔲 Create custom hooks for data fetching logic
 - 🔲 Reorganize project structure (`/api`, `/hooks`, `/types`, `/utils`)
+- 🔲 Migrate to Tailwind CSS v4 (to be specified soon ...)
 
 ### 2. Features & UX
 - 🔲 Implement shadcn/ui components:
