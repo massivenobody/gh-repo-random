@@ -1,8 +1,7 @@
 import { useState } from 'react'
 import LanguageSelector from './LanguageSelector'
 import GitHubService from '../api/GitHubService'
-import { FaStar, FaCodeFork, FaCircle } from 'react-icons/fa6'
-import { FaExclamationCircle } from 'react-icons/fa'
+import { Star, GitFork, CircleAlert, Circle } from 'lucide-react'
 import languages from '../data/languages'
 import colors from '../data/colors'
 import { GitHubRepo } from '../types/github'
@@ -14,6 +13,7 @@ function RepoFetcher() {
   const [isLoading, setIsLoading] = useState(false);
   const [repo, setRepo] = useState<GitHubRepo | null>(null);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const circleColor = repo ? repo.language ? colors[repo.language].color : 'black' : 'black';
 
   function handleLanguageChange(option: LanguageOption | null) {
     setSelectedLanguage(option);
@@ -51,16 +51,16 @@ function RepoFetcher() {
                 <p>{repo.description}</p>
                 <div className="repo-info-bar">
                   <div className="stat-item">
-                    <FaCircle style={repo.language ? { color: colors[repo.language].color } : {}} /> {repo.language}
+                    <Circle color={circleColor} fill={circleColor} /> {repo.language}
                   </div>
                   <div className="stat-item">
-                    <FaStar /> {repo.stargazers_count}
+                    <Star /> {repo.stargazers_count}
                   </div>
                   <div className="stat-item">
-                    <FaCodeFork /> {repo.forks_count}
+                    <GitFork /> {repo.forks_count}
                   </div>
                   <div className="stat-item">
-                    <FaExclamationCircle /> {repo.open_issues_count}
+                    <CircleAlert /> {repo.open_issues_count}
                   </div>
                 </div>
               </a>
