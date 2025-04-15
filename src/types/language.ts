@@ -1,4 +1,5 @@
 export interface LanguageOption {
-    label: string;
-    value: string;
+  title: string;
+  value: string;
+  color: string;
 }
