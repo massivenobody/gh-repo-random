@@ -49,15 +49,17 @@ const LanguageSelector = ({
     <Drawer open={isOpen} onOpenChange={setIsOpen}>
       <DrawerTrigger asChild>{button}</DrawerTrigger>
       <DrawerContent>
-        <DrawerHeader>
-          <DrawerTitle>Select a Language</DrawerTitle>
-        </DrawerHeader>
-        <div className="mt-4 border-t">
-          <LanguageList
-            languages={languages}
-            onSelect={onSelect}
-            error={error}
-          />
+        <div className="mx-auto w-full max-w-[500px]">
+          <DrawerHeader className="text-center">
+            <DrawerTitle>Select a Language</DrawerTitle>
+          </DrawerHeader>
+          <div>
+            <LanguageList
+              languages={languages}
+              onSelect={onSelect}
+              error={error}
+            />
+          </div>
         </div>
       </DrawerContent>
     </Drawer>

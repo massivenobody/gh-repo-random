@@ -70,7 +70,7 @@ pnpm dev
 - 🔲 Implement shadcn/ui components:
   - ❌ Replace React Select with shadcn/ui Select
   - 🔲 Replace Select with Responsive Combobox (due to performance reasons)
-    - 🔲 Drawer for mobile
+    - ✅ Drawer for mobile
     - 🔲 Popover for desktop
   - 🔲 Add shadcn/ui Card for repo display
   - 🔲 Implement shadcn/ui Skeleton for loading states
