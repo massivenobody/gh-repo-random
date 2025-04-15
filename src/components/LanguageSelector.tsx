@@ -8,7 +8,13 @@ import {
   DrawerTrigger,
 } from "./ui/drawer";
 import { Button } from "./ui/button";
-import { Command, CommandInput, CommandList } from "./ui/command";
+import {
+  Command,
+  CommandInput,
+  CommandList,
+  CommandEmpty,
+  CommandItem,
+} from "./ui/command";
 
 interface Props {
   languages: LanguageOption[];
@@ -29,6 +35,14 @@ const LanguageSelector = ({
     </Button>
   );
 
+  function onSelect(language: string) {
+    const selectedLanguage = languages.find((l) => l.value === language);
+    if (selectedLanguage) {
+      onLanguageChange(selectedLanguage);
+      setIsOpen(false);
+    }
+  }
+
   return (
     <Drawer open={isOpen} onOpenChange={setIsOpen}>
       <DrawerTrigger asChild>{button}</DrawerTrigger>
@@ -37,18 +51,33 @@ const LanguageSelector = ({
           <DrawerTitle>Select a Language</DrawerTitle>
         </DrawerHeader>
         <div className="mt-4 border-t">
-          <LanguageList />
+          <LanguageList languages={languages} onSelect={onSelect} />
         </div>
       </DrawerContent>
     </Drawer>
   );
 };
 
-function LanguageList() {
+function LanguageList({
+  languages,
+  onSelect,
+}: {
+  languages: LanguageOption[];
+  onSelect: (language: string) => void;
+}) {
+  const items = languages.map((language) => (
+    <CommandItem key={language.value} onSelect={() => onSelect(language.value)}>
+      {language.title}
+    </CommandItem>
+  ));
+
   return (
     <Command>
       <CommandInput placeholder="Search language..." />
-      <CommandList></CommandList>
+      <CommandList>
+        <CommandEmpty>No results found.</CommandEmpty>
+        {items}
+      </CommandList>
     </Command>
   );
 }
