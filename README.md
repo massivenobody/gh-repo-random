@@ -27,12 +27,14 @@ A React + TypeScript application that helps users discover random GitHub reposit
 ## Getting Started
 
 1. Clone the repository:
+
 ```bash
 git clone https://github.com/yourusername/gh-repo-random.git
 cd gh-repo-random
 ```
 
 2. Install dependencies:
+
 ```bash
 npm install
 # or
@@ -42,6 +44,7 @@ pnpm install
 ```
 
 3. Run the development server:
+
 ```bash
 npm run dev
 # or
@@ -55,15 +58,20 @@ pnpm dev
 ## Future Development
 
 ### 1. Code Architecture
+
 - ✅ Implement GitHubService class with singleton pattern for better API management
 - ✅ Add TypeScript interfaces and proper error handling
 - 🔲 Create custom hooks for data fetching logic
-- 🔲 Reorganize project structure (`/api`, `/hooks`, `/types`, `/utils`)
-- 🔲 Migrate to Tailwind CSS v4 (to be specified soon ...)
+- ✅ Reorganize project structure (`/api`, `/hooks`, `/types`, `/utils`)
+- 🔲 Migrate to Tailwind CSS v4
 
 ### 2. Features & UX
+
 - 🔲 Implement shadcn/ui components:
-  - ✅ Replace React Select with shadcn/ui Select
+  - ❌ Replace React Select with shadcn/ui Select
+  - 🔲 Replace Select with Responsive Combobox (due to performance reasons)
+    - 🔲 Drawer for mobile
+    - 🔲 Popover for desktop
   - 🔲 Add shadcn/ui Card for repo display
   - 🔲 Implement shadcn/ui Skeleton for loading states
   - 🔲 Add shadcn/ui Toast for notifications
@@ -74,10 +82,12 @@ pnpm dev
 - 🔲 Add repository search history and favorites
 
 ### 3. Testing & Quality
+
 - 🔲 Add unit tests
 - 🔲 Add component testing with shadcn/ui
 
 ### 4. Accessibility
+
 - 🔲 Built-in accessibility with shadcn/ui components
 - 🔲 Add accessibility testing
 
