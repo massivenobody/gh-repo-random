@@ -40,6 +40,7 @@ function RepoFetcher() {
     <div className="repo-fetcher">
       <LanguageSelector
         languages={languages}
+        selectedLanguage={selectedLanguage}
         onLanguageChange={handleLanguageChange}
       />
       <div className="search-result">
