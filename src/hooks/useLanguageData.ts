@@ -1,5 +1,5 @@
 import { LanguageOption } from "@/types/language";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 interface LanguageColors {
   [key: string]: {
@@ -8,6 +8,7 @@ interface LanguageColors {
 }
 
 function useLanguageData() {
+  const [error, setError] = useState<string | null>(null);
   const [languages, setLanguages] = useState<LanguageOption[]>([]);
   const [colors, setColors] = useState<LanguageColors>({});
 
@@ -47,19 +48,27 @@ function useLanguageData() {
         setLanguages(filteredLanguages);
         setColors(colorsData);
       } catch (err) {
-        console.error("Error fetching data: ", err);
+        setError(
+          err instanceof Error
+            ? err.message
+            : "Unknown error while fetching data"
+        );
       }
     }
     fetchData();
   }, []);
 
-  return languages.map((language) => {
-    const color = colors[language.value]?.color || "black";
-    return {
-      ...language,
-      color,
-    };
-  });
+  const processedLanguages = useMemo(() => {
+    return languages.map((language) => {
+      const color = colors[language.value]?.color || "black";
+      return {
+        ...language,
+        color,
+      };
+    });
+  }, [languages, colors]);
+
+  return { languages: processedLanguages, error };
 }
 
 export default useLanguageData;

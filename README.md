@@ -61,7 +61,7 @@ pnpm dev
 
 - ✅ Implement GitHubService class with singleton pattern for better API management
 - ✅ Add TypeScript interfaces and proper error handling
-- 🔲 Create custom hooks for data fetching logic
+- ✅ Create custom hooks for data fetching logic
 - ✅ Reorganize project structure (`/api`, `/hooks`, `/types`, `/utils`)
 - 🔲 Migrate to Tailwind CSS v4
 

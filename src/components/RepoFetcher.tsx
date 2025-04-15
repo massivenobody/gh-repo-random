@@ -14,7 +14,7 @@ function RepoFetcher() {
   const [repo, setRepo] = useState<GitHubRepo | null>(null);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
-  const languages = useLanguageData();
+  const { languages, error: languageError } = useLanguageData();
   const circleColor = repo
     ? repo.language
       ? languages.find((language) => language.value === repo.language)?.color
@@ -48,6 +48,7 @@ function RepoFetcher() {
         languages={languages}
         selectedLanguage={selectedLanguage}
         onLanguageChange={handleLanguageChange}
+        error={languageError}
       />
       <div className="search-result">
         {isLoading ? (
